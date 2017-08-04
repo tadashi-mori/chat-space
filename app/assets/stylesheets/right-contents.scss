@@ -5,7 +5,7 @@
 
  &__top {
   border-bottom: 1px solid #eeeeee;
-  height: 15%;
+  height: 120px;
 
   &__chat {
     margin: 0 40px;
@@ -37,10 +37,10 @@
 }
 
  &__middle {
-  height: calc(100vh - 15% - 90px);
+  height: calc(100vh - 120px - 90px);
   overflow-y: scroll;
 
-  &__massage {
+  &__message {
     margin: 0 40px;
     @include clearfix;
 
@@ -49,7 +49,7 @@
     float: left;
     font-size: 16px;
     font-weight: bold;
-    color: #434A54;
+    color: black;
    }
    &__date {
     float: left;
@@ -59,7 +59,7 @@
    }
    &__comment {
     font-size: 14px;
-    color: #434A54;
+    color: black;
     clear: both;
    }
  }
@@ -70,7 +70,7 @@
   &__footer {
     position: relative;
     height: 90px;
-    .massage {
+    .message {
       margin: 20px 0 20px 40px;
       padding-left: 10px;
       height: 50px;
@@ -78,7 +78,7 @@
       width: calc(100% - 230px);
     }
     input:webkit-input-placeholder {
-      color: #434A54;
+      color: black;
       font-size: 16px;
     }
     .file-image {
@@ -92,7 +92,7 @@
     .send {
       background-color: #38AEf0;
       border: none;
-      color: #FFFFFF;
+      color: white;
       height: 50px;
       width: 100px;
       margin-left: 15px;

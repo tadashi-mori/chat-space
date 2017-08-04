@@ -4,35 +4,35 @@
   height: 100vh;
   float: left;
  &__top {
-  height: 15%;
+  height: 120px;
   background-color: #253141;
   &__name {
-   color: #FFFFFF;
+   color: white;
    font-weight: bold;
    font-size: 16px;
    display: inline-block;
    padding: 35px 100px 35px 20px;
   }
   &__newchat {
-   color:  #FFFFFF;
+   color:  white;
    display: inline-block;
   }
   &__edit {
-    color: #FFFFFF;
+    color: white;
     display: inline-block;
   }
  }
 
  &__bottom {
-  color: #FFFFFF;
-  height: 85%;
+  color: white;
+  height: calc(100vh - 120px);
   &__group {
     padding: 20px 20px 40px;
     font-size: 15px;
    &__name {
     margin-bottom: 5px;
    }
-   &__massage {
+   &__message {
     font-size: 11px;
    }
   }
