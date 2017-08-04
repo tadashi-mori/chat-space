@@ -1,0 +1,41 @@
+.left-contents {
+  background-color: #2f3e51;
+  width: 300px;
+  height: 100vh;
+  float: left;
+ &__top {
+  height: 15%;
+  background-color: #253141;
+  &__name {
+   color: #FFFFFF;
+   font-weight: bold;
+   font-size: 16px;
+   display: inline-block;
+   padding: 35px 100px 35px 20px;
+  }
+  &__newchat {
+   color:  #FFFFFF;
+   display: inline-block;
+  }
+  &__edit {
+    color: #FFFFFF;
+    display: inline-block;
+  }
+ }
+
+ &__bottom {
+  color: #FFFFFF;
+  height: 85%;
+  &__group {
+    padding: 20px 20px 40px;
+    font-size: 15px;
+   &__name {
+    margin-bottom: 5px;
+   }
+   &__massage {
+    font-size: 11px;
+   }
+  }
+ }
+}
+
