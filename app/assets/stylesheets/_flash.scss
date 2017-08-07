@@ -1,9 +1,10 @@
 .flash {
-  color: white;
-  &_alert {
+  color: $white;
+  text-align: center;
+  &__alert{
     background-color: red;
   }
-  &_notice {
+  &__notice {
     background-color: blue;
   }
 }
