@@ -1,5 +1,7 @@
 class GroupsController < ApplicationController
 
+  before_action :hoge, only:[:edit, :update]
+
   def index
     @group = Group.all
   end
@@ -17,11 +19,14 @@ class GroupsController < ApplicationController
     end
   end
 
-  def edit
-    @group = Group.find_by(params[:id])
+
+  def hoge
+     @group = Group.find_by(params[:id])
   end
 
-  before_action :edit
+  def edit
+
+  end
 
   def update
     if @group.save
