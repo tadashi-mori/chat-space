@@ -1,0 +1,14 @@
+.left-contents
+ .left-contents__top
+  .left-contents__top__user-contents
+   .left-contents__top__name= current_user.name
+   %a{href: "/groups/new", class: "left-contents__top__newchat"}
+    %i{class: "fa fa-pencil-square-o"}
+   %a{href: "/users/edit", class: "left-contents__top__edit"}
+    %i{class: "fa fa-cog"}
+
+ .left-contents__bottom
+  .left-contents__bottom__group
+   - @group.each do |group|
+    .left-contents__bottom__group__name= group.name
+    .left-contents__bottom__group__mmessage まだメッセージはありません。
