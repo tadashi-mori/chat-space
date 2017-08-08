@@ -21,8 +21,9 @@ class GroupsController < ApplicationController
     @group = Group.find_by(params[:id])
   end
 
+  before_action :edit
+
   def update
-    @group = Group.find_by(params[:id])
     if @group.save
       redirect_to :root, notice: "グループを編集しました。"
     else
