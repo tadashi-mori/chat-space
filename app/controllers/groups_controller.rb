@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
 
-  before_action :hoge, only:[:edit, :update]
+  before_action :group_content, only:[:edit, :update]
 
   def index
     @group = Group.all
@@ -19,11 +19,6 @@ class GroupsController < ApplicationController
     end
   end
 
-
-  def hoge
-     @group = Group.find_by(params[:id])
-  end
-
   def edit
 
   end
@@ -39,6 +34,10 @@ class GroupsController < ApplicationController
   private
   def group_params
     params.require(:group).permit(:name,{user_ids: []})
+  end
+
+  def group_content
+     @group = Group.find_by(params[:id])
   end
 
 end
