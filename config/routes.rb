@@ -1,13 +1,10 @@
 Rails.application.routes.draw do
+  root 'groups#index'
   devise_for :users
   resources :users, only: [:edit, :update]
-  resources :groups, only:[:index, :new, :create, :edit, :update,]
-  root 'groups#index'
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
-
-
+  resources :groups, only:[:index, :new, :create, :edit, :update,] do
+    resources :messages, only:[:create, :index]
+ end
 end
 
 

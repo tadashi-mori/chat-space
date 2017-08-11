@@ -3,7 +3,8 @@ class GroupsController < ApplicationController
   before_action :group_content, only:[:edit, :update]
 
   def index
-    @group = Group.all
+    @groups = current_user.groups
+    @message = Message.new
   end
 
   def new
@@ -11,8 +12,8 @@ class GroupsController < ApplicationController
   end
 
   def create
-    @group = Group.new(group_params)
-    if @group.save
+    @groups = Group.new(group_params)
+    if @groups.save
       redirect_to :root, notice: "グループを作成しました。"
     else
       render :new
@@ -24,7 +25,7 @@ class GroupsController < ApplicationController
   end
 
   def update
-    if @group.save
+    if @group.update(group_params)
       redirect_to :root, notice: "グループを編集しました。"
     else
       render :edit
@@ -33,11 +34,11 @@ class GroupsController < ApplicationController
 
   private
   def group_params
-    params.require(:group).permit(:name,{user_ids: []})
+    params.require(:group).permit(:name,{user_ids:[]})
   end
 
   def group_content
-     @group = Group.find_by(params[:id])
+     @group = Group.find(params[:id])
   end
 
 end

@@ -1,22 +1,22 @@
 .right-contents
  .right-contents__top
   .right-contents__top__chat.clearfix
-   .right-contents__top__group= @group.name
-   = link_to'edit', edit_group_path(@group),class: "right-contents__top__edit"
-  .right-contents__top__member MEMER:
+   .right-contents__top__group nekotter
+   %a{href: "/group/521/edit", class: "right-contents__top__edit"} edit
+  .right-contents__top__member nekosan
 
  .right-contents__middle
   .right-contents__middle__message.clearfix
-  - @messages.each do |message|
+  - @message.each do |message|
    .right-contents__middle__message__nickname=message.user.name
    .right-contents__middle__message__date=message.created_at
    .right-contents__middle__message__comment=message.body
 
  .right-contents__bottom
-  = form_for([@group, @message]) do |f|
+  = form_for @message do |f|
    .right-contents__bottom__footer
-    = f.text_field :body, class: "message"
-    = f.label :image, class: "file-image"
-    %i{class: "fa fa-image"}
-    = f.file_field :image, class: "file"
+    = f.text_field :body, placeholder: "type a messadge", class: "message"
+    = f.label :image, class: "file-image" do
+     %i{class: "fa fa-image"}
+     = f.file_field :image, class: "file"
     = f.submit :Send, class: "send"
