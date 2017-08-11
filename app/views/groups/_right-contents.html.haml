@@ -10,13 +10,18 @@
   - @messages.each do |message|
    .right-contents__middle__message__nickname=message.user.name
    .right-contents__middle__message__date=message.created_at
-   .right-contents__middle__message__comment=message.body
+   .right-contents__middle__message__comment
+    = message.body
+   .right-contents__middle__message__comment_image
+    - unless message.image.blank?
+     = image_tag message.image
+
 
  .right-contents__bottom
   = form_for([@group, @message]) do |f|
    .right-contents__bottom__footer
     = f.text_field :body, class: "message"
-    = f.label :image, class: "file-image"
-    %i{class: "fa fa-image"}
+    = f.label :image, class: "file-image" do
+     %i{class: "fa fa-image"}
     = f.file_field :image, class: "file"
     = f.submit :Send, class: "send"
