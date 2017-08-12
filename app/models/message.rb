@@ -1,6 +1,6 @@
 class Message < ApplicationRecord
-  # validates :body, :image, presence:true
+  validates :body, presence:true
   belongs_to :group
-  belongs_to :user, foreign_key: current_user
+  belongs_to :user
   mount_uploader :image, ImageUploader
 end
