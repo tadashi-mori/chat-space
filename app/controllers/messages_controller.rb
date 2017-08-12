@@ -1,16 +1,17 @@
 class MessagesController < ApplicationController
+
+  before_action :group_content, only:[:index, :create]
+
   def index
     @groups = current_user.groups
-    @group = Group.find(params[:group_id])
     @message = Message.new
-    @messages = Message.where("group_id")
+    @messages = @group.messages.includes(:user)
   end
 
   def create
     @groups = current_user.groups
-    @group = Group.find(params[:group_id])
-    @messages = Message.where("group_id")
     @message = Message.new(message_params)
+    @messages = @group.messages.includes(:user)
     if @message.save
       redirect_to action: :index, notice: "メッセージを送信しました"
     else
@@ -21,5 +22,9 @@ class MessagesController < ApplicationController
   private
   def message_params
     params.require(:message).permit(:body, :image).merge(group_id: params[:group_id], user_id: current_user.id)
+  end
+
+  def group_content
+    @group = Group.find(params[:group_id])
   end
 end

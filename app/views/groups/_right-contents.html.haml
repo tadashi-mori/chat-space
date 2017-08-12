@@ -1,15 +1,18 @@
 .right-contents
  .right-contents__top
   .right-contents__top__chat.clearfix
-   .right-contents__top__group= @group.name
+   .right-contents__top__group
+   = @group.name
    = link_to'edit', edit_group_path(@group),class: "right-contents__top__edit"
   .right-contents__top__member MEMER:
 
  .right-contents__middle
   .right-contents__middle__message.clearfix
   - @messages.each do |message|
-   .right-contents__middle__message__nickname=message.user.name
-   .right-contents__middle__message__date=message.created_at
+   .right-contents__middle__message__nickname
+   =message.user.name
+   .right-contents__middle__message__date
+   =message.created_at
    .right-contents__middle__message__comment
     = message.body
    .right-contents__middle__message__comment_image
@@ -25,3 +28,5 @@
      %i{class: "fa fa-image"}
     = f.file_field :image, class: "file"
     = f.submit :Send, class: "send"
+
+
