@@ -10,7 +10,7 @@ class MessagesController < ApplicationController
 
   def create
     @groups = current_user.groups
-    @message = Message.new(message_params)
+    @message = current_user.messages.new(message_params)
     @messages = @group.messages.includes(:user)
     if @message.save
       redirect_to action: :index, notice: "メッセージを送信しました"
@@ -21,7 +21,7 @@ class MessagesController < ApplicationController
 
   private
   def message_params
-    params.require(:message).permit(:body, :image).merge(group_id: params[:group_id, :user_id])
+    params.require(:message).permit(:body, :image).merge(group_id: params[:group_id])
   end
 
   def group_content
