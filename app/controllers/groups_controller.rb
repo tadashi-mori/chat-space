@@ -8,7 +8,7 @@ class GroupsController < ApplicationController
   end
 
   def new
-    @group = Group.new
+    @groups = Group.new
   end
 
   def create
@@ -34,7 +34,7 @@ class GroupsController < ApplicationController
 
   private
   def group_params
-    params.require(:group).permit(:name,{user_ids:[]})
+    params.require(:group).permit(:name, current_user.id)
   end
 
   def group_content
