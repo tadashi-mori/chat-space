@@ -32,9 +32,14 @@
    &__member {
     color: #999999;
     font-size: 12px;
-    padding: 0 10px 40px;
-    clear: both;
-   }
+    margin: 0 0 40px 40px;
+    display: inline-block;
+    &__list {
+      color: #999999;
+      font-size: 12px;
+      display: inline-block;
+    }
+  }
 }
 
  &__middle {
