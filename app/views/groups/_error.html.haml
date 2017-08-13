@@ -1,6 +1,6 @@
-- if @group.errors.any?
+- if @groups.errors.any?
   .chat-group-form__errors
     %h2
-      = "#{@group.errors.count}件のエラーが発生しました"
+      = "#{@groups.errors.count}件のエラーが発生しました"
       %ul
         %li グループ名を入力してください。
