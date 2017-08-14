@@ -1,7 +1,8 @@
 .left-contents
  .top
   .top__user-contents
-   .top__name= current_user.name
+   .top__name
+    = current_user.name
    = link_to "/groups/new",  class: "top__newchat" do
     %i{class: "fa fa-pencil-square-o"}
    = link_to "/users/edit", class: "top__edit" do
