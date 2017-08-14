@@ -3,7 +3,7 @@
   height: 100vh;
   float: right;
 
- &__top {
+ .top {
   border-bottom: 1px solid #eeeeee;
   height: 120px;
 
@@ -29,7 +29,7 @@
     text-decoration: none;
    }
 
-   &__member {
+   .member {
     color: #999999;
     font-size: 12px;
     margin: 0 0 40px 40px;
@@ -42,16 +42,16 @@
   }
 }
 
- &__middle {
+ .middle {
   height: calc(100vh - 120px - 90px);
   overflow-y: scroll;
 
-  &__message {
+  .message {
     margin: 0 40px;
     @include clearfix;
 
    &__nickname {
-    margin: 46px 10px 10px 0;
+    margin: 46px 10px 10px 20px;
     float: left;
     font-size: 16px;
     font-weight: bold;
@@ -65,15 +65,16 @@
    }
    &__comment {
     font-size: 14px;
+    margin-left: 20px;
     color: black;
     clear: both;
    }
  }
 }
- &__bottom {
+ .bottom {
   background-color: #BBC3C7;
   height: 90px;
-  &__footer {
+  .footer {
     position: relative;
     height: 90px;
     .message {
