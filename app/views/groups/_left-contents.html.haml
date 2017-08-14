@@ -1,15 +1,18 @@
 .left-contents
- .left-contents__top
-  .left-contents__top__user-contents
-   .left-contents__top__name= current_user.name
-   = link_to "/groups/new",  class: "left-contents__top__newchat" do
+ .top
+  .top__user-contents
+   .top__name
+    = current_user.name
+   = link_to "/groups/new",  class: "top__newchat" do
     %i{class: "fa fa-pencil-square-o"}
-   = link_to "/users/edit", class: "left-contents__top__edit" do
+   = link_to "/users/edit", class: "top__edit" do
     %i{class: "fa fa-cog"}
 
- .left-contents__bottom
-  .left-contents__bottom__group
+ .bottom
   - @groups.each do |group|
-   =link_to "/groups/#{group.id}/messages", class: "left-contents__bottom" do
-    .left-contents__bottom__group__name= group.name
-    .left-contents__bottom__group__mmessage まだメッセージはありません。
+   .group
+    =link_to "/groups/#{group.id}/messages", class: "left-contents__bottom" do
+     .group__name
+      = group.name
+     .group__message
+      = group.messages.try(:last).try(:body)

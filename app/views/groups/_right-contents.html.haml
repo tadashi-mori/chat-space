@@ -1,32 +1,32 @@
 .right-contents
- .right-contents__top
-  .right-contents__top__chat.clearfix
-   .right-contents__top__group
-   = @group.name
-   = link_to'edit', edit_group_path(@group),class: "right-contents__top__edit"
-  .right-contents__top__member MEMER:
+ .top
+  .top__chat.clearfix
+   .top__group= @group.name
+   = link_to'edit', edit_group_path(@group),class: "top__edit"
+  .member MEMER:
+  .member__list
+   - @group.users.each do |users|
+    = users.name
 
- .right-contents__middle
-  .right-contents__middle__message.clearfix
-  - @messages.each do |message|
-   .right-contents__middle__message__nickname
-   =message.user.name
-   .right-contents__middle__message__date
-   =message.created_at
-   .right-contents__middle__message__comment
-    = message.body
-   .right-contents__middle__message__comment_image
-    - unless message.image.blank?
-     = image_tag message.image
+ .middle
+  .middle__message.clearfix
+   - @messages.each do |message|
+    .message__nickname
+     =message.user.name
+    .message__date
+     =message.created_at
+    .message__comment
+     = message.body
+    .message__comment
+     - unless message.image.blank?
+      = image_tag message.image
 
 
- .right-contents__bottom
+ .bottom
   = form_for([@group, @message]) do |f|
-   .right-contents__bottom__footer
-    = f.text_field :body, class: "message"
+   .footer
+    = f.text_field :body, placeholder: "type a message", class: "message"
     = f.label :image, class: "file-image" do
      %i{class: "fa fa-image"}
-    = f.file_field :image, class: "file"
+     = f.file_field :image, class: "file"
     = f.submit :Send, class: "send"
-
-

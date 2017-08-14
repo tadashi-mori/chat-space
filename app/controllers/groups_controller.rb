@@ -25,7 +25,7 @@ class GroupsController < ApplicationController
   end
 
   def update
-    if @group.update(group_params)
+    if @groups.update(group_params)
       redirect_to :root, notice: "グループを編集しました。"
     else
       render :edit
@@ -34,11 +34,11 @@ class GroupsController < ApplicationController
 
   private
   def group_params
-    params.require(:group).permit(:name, current_user.id)
+    params.require(:group).permit(:name, user_ids: [])
   end
 
   def group_content
-     @group = Group.find(params[:id])
+     @groups = Group.find(params[:id])
   end
 
 end
