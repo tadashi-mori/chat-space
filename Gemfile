@@ -18,6 +18,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
+gem 'haml-rails'
+gem 'erb2haml'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -40,10 +42,10 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails'
   gem 'factory_girl_rails', "~> 4.4.1"
+  gem 'faker'
 end
 
 group :test do
-  gem 'faker'
   gem 'rails-i18n'
 end
 
@@ -54,15 +56,16 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'haml-rails'
-  gem 'erb2haml'
+  # gem 'haml-rails'
+  # gem 'erb2haml'
   gem 'font-awesome-rails'
-  gem 'pry-rails'
 end
 
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'devise'
+gem 'rails-controller-testing'
+gem 'pry-rails'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
