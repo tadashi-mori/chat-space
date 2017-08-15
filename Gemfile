@@ -44,6 +44,7 @@ end
 
 group :test do
   gem 'faker'
+  gem 'rails-i18n'
 end
 
 group :development do
