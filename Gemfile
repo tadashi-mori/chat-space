@@ -56,11 +56,12 @@ group :development do
   gem 'haml-rails'
   gem 'erb2haml'
   gem 'font-awesome-rails'
-  gem 'devise'
-  gem 'carrierwave'
-  gem 'mini_magick'
   gem 'pry-rails'
 end
+
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'devise'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
