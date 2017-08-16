@@ -40,7 +40,7 @@ describe Message do
   it "is vaild without a user_id" do
     message = build(:message, user_id: "")
     message.valid?
-    expect(message).to be_invalid
+    expect(message).not_to be_valid
   end
  end
 end
