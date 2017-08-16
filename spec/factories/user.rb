@@ -6,7 +6,7 @@ FactoryGirl.define do
     email                 {Faker::Internet.email}
     password              pass
     password_confirmation pass
-      # user.messages{[FactoryGirl.create(:message)]}
   end
+
 end
 

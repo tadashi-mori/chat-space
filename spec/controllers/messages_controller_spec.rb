@@ -1,9 +1,9 @@
   require 'rails_helper'
 
   RSpec.describe MessagesController, type: :controller do
-    let(:user) {create(:user)}
-    let(:group) {create(:group)}
-    let(:message) {build(:message)}
+    let(:user) { create(:user) }
+    let(:group) { create(:group) }
+    let(:message) { build(:message) }
     let(:create_params) { {group_id: group, message: attributes_for(:message) } }
 
     describe 'GET #index' do
@@ -42,7 +42,7 @@
 
         context "メッセージの保存に成功" do
           it "メッセージの保存はできたのか" do
-            expect{post :create, params: {group_id: group, message: attributes_for(:message)}}.to change(Message, :count).by(1)
+            expect{ post :create, params: { group_id: group, message: attributes_for(:message) } }.to change(Message, :count).by(1)
           end
 
           it "意図した画面に遷移しているか" do
@@ -61,8 +61,8 @@
         end
 
           it "メッセージの保存に失敗した場合" do
-            subject{ post :create, params: { group_id: group, message: attributes_for(:message, body: nil, image: nil) }}
-            expect{subject}.not_to change(Message, :count)
+            subject{ post :create, params: { group_id: group, message: attributes_for(:message, body: nil, image: nil) } }
+            expect{ subject }.not_to change(Message, :count)
           end
 
           it "意図したビューが描写されているか" do
