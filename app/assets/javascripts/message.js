@@ -1,12 +1,12 @@
 $(function(){
   function buildHTML(message){
     if (message.image){
-    var html = `<div class="middle__message.clearfix">
+     var html = `<div class="middle__message.clearfix">
                   <div class="message__nickname">${message.user_name}</div>
                   <div class="message__date">${message.created_at}</div>
                   <div class="message__comment">${message.body}</div>
                   <div class="message__comment"><img src=${message.image}></div>
-                </div>`
+                 </div>`
     }else {
       var html = `<div class="middle__message.clearfix">
                    <div class="message__nickname">${message.user_name}</div>
