@@ -18,6 +18,13 @@ $(function(){
     return html;
   }
 
+  function appendHTML(html){
+      $('.middle').append(html);
+      $('.message').val('');
+      $('.file').val('');
+      $('.middle').animate({scrollTop: $('.middle')[0].scrollHeight}, 'fast');
+  }
+
  $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -33,12 +40,8 @@ $(function(){
     })
 
     .done(function(data){
-      console.log(data);
       var html = buildHTML(data);
-      $('.middle').append(html);
-      $('.message').val('');
-      $('.file').val('');
-      $('.middle').animate({scrollTop: $('.middle')[0].scrollHeight}, 'fast');
+      appendHTML(html);
     })
 
     .fail(function() {
