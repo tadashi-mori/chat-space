@@ -19,7 +19,18 @@ $(function(){
   }
 
   function appendHTML(html){
+
       $('.middle').animate({scrollTop: $('.middle')[0].scrollHeight}, 'fast');
+  }
+
+  function flash() {
+    var html =
+      `<p class="alert-notice">メッセージを送信しました</p>`
+    $('.alert').append(html);
+    $('.alert-notice').fadeIn(500).fadeOut(2000);
+    setTimeout(function(){
+     $('.alert-notice').remove();
+    },2500);
   }
 
  $('#new_message').on('submit', function(e){
@@ -40,8 +51,9 @@ $(function(){
       var html = buildHTML(data);
       appendHTML(html);
       $('.middle').append(html);
-      $('.message').val('');
+      $('#new_message')[0].reset();
       $('.file').val('');
+      flash();
     })
 
     .fail(function() {
