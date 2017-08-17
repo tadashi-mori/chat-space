@@ -1,26 +1,27 @@
 $(function(){
   function buildHTML(message){
-    if (message.image){
-     var html = `<div class="middle__message.clearfix">
-                  <div class="message__nickname">${message.user_name}</div>
-                  <div class="message__date">${message.created_at}</div>
-                  <div class="message__comment">${message.body}</div>
-                  <div class="message__comment"><img src=${message.image}></div>
-                 </div>`
-    }else {
-      var html = `<div class="middle__message.clearfix">
+    var html = `<div class="middle__message.clearfix">
                    <div class="message__nickname">${message.user_name}</div>
                    <div class="message__date">${message.created_at}</div>
-                   <div class="message__comment">${message.body}</div>
-                  </div>`
+                </div>`
+
+    if (message.body){
+        html += `<div class="message__comment">${message.body}</div>`
     }
+
+    if (message.image){
+        html += `<div class="message__comment"><img src=${message.image}></div>`
+    }
+
+        html += `</div></div>`
+
     return html;
   }
 
-  $('#new_message').on('submit', function(e){
+ $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
-    var url = $(this).attr('action');
+    var url = $(this).attr('action')
 
     $.ajax({
       url: url,
