@@ -25,7 +25,7 @@ $(function(){
 
   function flash() {
     var html =
-      `<p class="alert-notice">メッセージを送信しました</p>`
+      `<p class="alert alert-notice">メッセージを送信しました</p>`
     $('.alert').append(html);
     $('.alert-notice').fadeIn(500).fadeOut(2000);
     setTimeout(function(){

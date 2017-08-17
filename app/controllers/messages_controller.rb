@@ -14,8 +14,7 @@ class MessagesController < ApplicationController
     @messages = @group.messages.includes(:user)
     if @message.save
       respond_to do |format|
-        # flash[:notice] = ""
-        format.html { redirect_to group_messages_path }
+        format.html { redirect_to group_messages_path, notice: "メッセージの作成に成功しました" }
         format.json
       end
     else
