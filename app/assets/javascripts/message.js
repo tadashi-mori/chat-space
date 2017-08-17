@@ -19,9 +19,6 @@ $(function(){
   }
 
   function appendHTML(html){
-      $('.middle').append(html);
-      $('.message').val('');
-      $('.file').val('');
       $('.middle').animate({scrollTop: $('.middle')[0].scrollHeight}, 'fast');
   }
 
@@ -42,6 +39,9 @@ $(function(){
     .done(function(data){
       var html = buildHTML(data);
       appendHTML(html);
+      $('.middle').append(html);
+      $('.message').val('');
+      $('.file').val('');
     })
 
     .fail(function() {
