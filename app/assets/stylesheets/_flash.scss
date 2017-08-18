@@ -1,10 +1,15 @@
-.flash {
-  color: $white;
+.alert-notice {
+  background-color: blue;
+  height: 30px;
+  width: 100vw;
   text-align: center;
-  &__alert{
-    background-color: red;
-  }
-  &__notice {
-    background-color: blue;
-  }
+  color: white;
+}
+
+.alert-error {
+  background-color: red;
+  height: 30px;
+  width: 100vw;
+  text-align: center;
+  color: white;
 }
