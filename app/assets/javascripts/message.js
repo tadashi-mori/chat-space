@@ -3,18 +3,14 @@ $(function(){
     var html = `<div class="middle__message.clearfix">
                    <div class="message__nickname">${message.user_name}</div>
                    <div class="message__date">${message.created_at}</div>
-                </div>`
-
+                `
     if (message.body){
         html += `<div class="message__comment">${message.body}</div>`
     }
-
     if (message.image){
         html += `<div class="message__comment"><img src=${message.image}></div>`
     }
-
-        html += `</div></div>`
-
+    html += '</div>'
     return html;
   }
 
@@ -52,7 +48,6 @@ $(function(){
       appendHTML(html);
       $('.middle').append(html);
       $('#new_message')[0].reset();
-      $('.file').val('');
       flash();
     })
 
