@@ -6,9 +6,9 @@ $(function() {
 // #インクリメンタルサーチのhtmlを定義
 function searchUser(user) {
   var html = `<div class="chat-group-user clearfix">
-  <p class="chat-group-user__name">${user.name}</p>
-  <a class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id=${user.id} data-user-name=${user.name}>追加</a>
-  </div>`
+               <p class="chat-group-user__name">${user.name}</p>
+               <a class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id=${user.id} data-user-name=${user.name}>追加</a>
+              </div>`
 
   users_list.append(html);
 }
@@ -16,8 +16,8 @@ function searchUser(user) {
 // #一致するユーザーはいませんの表示
 function message(message){
   var html = `<div class="chat-group-user clearfix">
-  <p class="chat-group-user__name">${message}</p>
-  </div>`
+               <p class="chat-group-user__name">${message}</p>
+              </div>`
 
   users_list.append(html);
 }
@@ -36,6 +36,11 @@ function addUser(user){
   delete_user.remove();
 }
 
+// ＃メンバーの削除
+ function removeUser(){
+  var delete_member = $('#user_add_result')
+  delete_member.remove();
+ }
 
 
 
@@ -78,4 +83,9 @@ $(document).on('click', '.chat-group-user__btn--add',function(){
   }
   addUser(user);
 });
+
+// ＃メンバーの削除
+ $(document).on("click",".js-remove-btn",function(){
+  removeUser();
+ })
 });
