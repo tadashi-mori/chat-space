@@ -23,12 +23,12 @@ function message(message){
 }
 
 // ＃追加するメンバーの表示
-function addUser(user){
+function addUser(user_id, user_name){
   var add_user    =$('#user_add_result');
   var delete_user =$('#user-search-result');
-  var html = `<div class="chat-group-user clearfix js-chat-member" id="chat-group-user-${user.id}">
-                <input name="group[user_ids][]" type="hidden" value="${user.id}">
-                <p class="chat-group-user__name">${user.name}</p>
+  var html = `<div class="chat-group-user clearfix js-chat-member" id="chat-group-user-${user_id}">
+                <input name="group[user_ids][]" type="hidden" value="${user_id}">
+                <p class="chat-group-user__name">${user_name}</p>
                 <a class="user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn">削除</a>
               </div>`
 
@@ -77,11 +77,7 @@ $("#user-search-field").on("keyup", function() {
 $(document).on('click', '.chat-group-user__btn--add',function(){
   var id = $(this).attr('data-user-id');
   var name =$(this).attr('data-user-name');
-  var user = {
-    id: id,
-    name: name
-  }
-  addUser(user);
+  addUser(id, name);
 });
 
 // ＃メンバーの削除
