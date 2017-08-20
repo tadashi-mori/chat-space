@@ -30,7 +30,6 @@ function addUser(user_id, user_name){
                 <input name="group[user_ids][]" type="hidden" value="${user_id}">
                 <p class="chat-group-user__name">${user_name}</p>
                 <a class="user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn">削除</a>
-              </div>`
 
   add_user.append(html);
   delete_user.remove();
@@ -74,9 +73,6 @@ $("#user-search-field").on("keyup", function() {
 
 
 // ＃メンバーの追加機能
-$(document).on('click', '.chat-group-user__btn--add',function(){
-  var id = $(this).attr('data-user-id');
-  var name =$(this).attr('data-user-name');
   addUser(id, name);
 });
 
