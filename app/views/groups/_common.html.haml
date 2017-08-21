@@ -1,0 +1,31 @@
+= form_for @groups do |f|
+  .chat-group-form__field.clearfix
+    .chat-group-form__field--left
+      = f.label :name, "グループ名", {class: "chat-group-form__label"}
+    .chat-group-form__field--right
+      = f.text_field :name, {class: "chat-group-form__input", :placeholder => "グループ名を入力してください"}
+  .chat-group-form__field.clearfix
+    .chat-group-form__field--left
+      = f.label :name, "チャットメンバーを追加", {class: "chat-group-form__label"}
+    .chat-group-form__field--right
+      .chat-group-form__search.clearfix
+        %input{ class: 'chat-group-form__input', id:'user-search-field', :placeholder =>'追加したいユーザー名を入力してください'}
+        #user-search-result
+  .chat-group-form__field.clearfix
+    .chat-group-form__field--left
+      = f.label :name, "チャットメンバー", {class: "chat-group-form__label"}
+    .chat-group-form__field--right
+      .chat-group-users#chat-group-users
+      - @groups.users.each do |user|
+        =f.hidden_field :user_ids,value: user.id
+        .chat-group-user.clearfix
+          %p.chat-group-user__name
+            = user.name
+          - if user.id != current_user.id
+            %a.user-search-remove.chat-group-user__btn.chat-group-user__btn--remove
+              削除
+
+  .chat-group-form__field.clearfix
+    .chat-group-form__field--left
+    .chat-group-form__field--right
+      = f.submit "登録する", class: "chat-group-form__action-btn"
