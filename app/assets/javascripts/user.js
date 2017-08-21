@@ -26,17 +26,10 @@ function message(message){
 // ＃追加するメンバーの表示
 function addUser(user_id, user_name) {
     var html = `<div class="chat-group-user clearfix">
-                <p class="chat-group-user__name">`
-        html += user_name
-        html += `</p>
-                <a class="user-search-remove chat-group-user__btn chat-group-user__btn--remove" data-user-id="`
-        html += user_id
-        html += `" data-user-name="`
-        html += user_name
-        html +=`">
-                削除
-                </a>
+                 <p class="chat-group-user__name">${user_name}</p>
+                 <a class="user-search-remove chat-group-user__btn chat-group-user__btn--remove" data-user-id=${user_id}>削除</a>
                 </div>`
+
     user_list.append(html);
   }
 
