@@ -15,21 +15,6 @@ $(function(){
     return html;
   }
 
-  // function buildHTML(message){
-  //   var insertImage ="";
-  //   if(message.image.url){
-  //     insertImage = `<img src="{$message.image.url}">`;
-  //   }
-  //   var html = `
-  //               <div class="chat" data-message-id="${message.id}">
-  //                <p class="chat__user">${messege.name}</p>
-  //                <p class="chat__date">${message.date}</p>
-  //                <p class="chat__content">${message.body}</p>
-  //               ${insertImage}
-  //               </div>`;
-  //   return html
-  // }
-
   function appendHTML(html){
 
       $('.middle').animate({scrollTop: $('.middle')[0].scrollHeight}, 'fast');
@@ -79,7 +64,6 @@ $(function(){
  if(window.location.href.match(/messages/)){
   setInterval(function(){
     var last_id = $('.middle__message').last().data("id");
-    console.log(last_id);
     $.ajax({
       type: 'GET',
       url: window.location.href,
@@ -95,6 +79,7 @@ $(function(){
           insertHTML += buildHTML(message);
         }
         $('.middle').append(insertHTML);
+         $('.middle').animate({scrollTop: $('.middle')[0].scrollHeight}, 'fast');
       });
     })
 
