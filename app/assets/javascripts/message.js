@@ -58,8 +58,6 @@ $(function(){
     return false;
   });
 
-
-
  // #メッセージの自動更新
  if(window.location.href.match(/messages/)){
   setInterval(function(){
@@ -90,12 +88,3 @@ $(function(){
  }
 
 });
-
-
-
-
-
-
-
-
-
