@@ -1,6 +1,7 @@
 $(function(){
   function buildHTML(message){
-    var html = `<div class="middle__message.clearfix">
+    // var insertHTML = '';
+    var html = `<div class="middle__message clearfix" data-id="${message.id}">
                    <div class="message__nickname">${message.user_name}</div>
                    <div class="message__date">${message.created_at}</div>
                 `
@@ -56,4 +57,34 @@ $(function(){
     });
     return false;
   });
+
+ // #メッセージの自動更新
+ if(window.location.href.match(/messages/)){
+  setInterval(function(){
+    var last_id = $('.middle__message').last().data("id");
+    $.ajax({
+      type: 'GET',
+      url: window.location.href,
+      data: {id: last_id},
+      dataType : 'json'
+    })
+
+    .done(function(data) {
+      console.log(data);
+      data.messages.forEach(function(message){
+        if(message.id > last_id){
+          var insertHTML = '';
+          insertHTML += buildHTML(message);
+        }
+        $('.middle').append(insertHTML);
+         $('.middle').animate({scrollTop: $('.middle')[0].scrollHeight}, 'fast');
+      });
+    })
+
+    .fail(function(data){
+      alert('自動更新に失敗しました');
+    });
+  }, 5000);
+ }
+
 });

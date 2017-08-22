@@ -9,8 +9,8 @@
     = users.name
 
  .middle
-  .middle__message.clearfix
-   - @messages.each do |message|
+  - @messages.each do |message|
+   .middle__message.clerafix{ data:{id: message.id} }
     .message__nickname
      =message.user.name
     .message__date
